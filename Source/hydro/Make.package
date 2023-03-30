@@ -1,0 +1,4 @@
+
+CEXE_headers += EMM_hydro_K.H EMM_eos.H
+
+

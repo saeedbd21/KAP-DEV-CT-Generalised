@@ -1,0 +1,39 @@
+AMREX_HOME := /Users/saeedbidi/AMReX/amrex
+TOP := /Users/saeedbidi/AMReX/devAMRex/KAP-DEV-CT-Generalised
+
+EBASE := EMM
+
+#DIM := 3
+
+LAZY := TRUE
+
+BL_NO_FORT = TRUE
+
+
+LIBRARIES += -lpython3.10
+
+INCLUDE_LOCATIONS += /Library/Frameworks/Python.framework/Versions/3.10/include/python3.10
+LIBRARY_LOCATIONS += /Library/Frameworks/Python.framework/Versions/3.10/lib
+
+LIBS += /Library/Frameworks/Python.framework/Versions/3.10/lib
+
+include $(AMREX_HOME)/Tools/GNUMake/Make.defs
+
+# EMM uses a coarse grained OMP approach
+DEFINES += -DAMREX_CRSEGRNDOMP
+
+include $(TOP)/Source/Make.package
+INCLUDE_LOCATIONS += $(TOP)/Source
+VPATH_LOCATIONS   += $(TOP)/Source
+
+include $(TOP)/Source/hydro/Make.package
+INCLUDE_LOCATIONS += $(TOP)/Source/hydro
+VPATH_LOCATIONS   += $(TOP)/Source/hydro
+
+include $(AMREX_HOME)/Src/Base/Make.package
+include $(AMREX_HOME)/Src/Boundary/Make.package
+include $(AMREX_HOME)/Src/AmrCore/Make.package
+include $(AMREX_HOME)/Src/Amr/Make.package
+
+include $(AMREX_HOME)/Tools/GNUMake/Make.rules
+

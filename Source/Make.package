@@ -1,0 +1,8 @@
+
+CEXE_sources += main.cpp
+
+CEXE_headers += EMM.H EMM_K.H EMM_index_macros.H EMM_tagging.H EMM_derive.H
+CEXE_sources += EMM_advance.cpp EMM.cpp EMMBld.cpp EMM_io.cpp EMM_setup.cpp EMM_bcfill.cpp EMM_derive.cpp
+
+CEXE_headers += EMM_parm.H
+CEXE_sources += EMM_parm.cpp
